@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Entry from './components/Entry.jsx';
+import EntryForm from './components/EntryForm.jsx';
 
 function App() {
   const [profile, setProfile] = useState(
@@ -20,14 +21,27 @@ function App() {
     }
   };
 
+  // TODO: Add prop types.
   return (
     <div className="container">
       <h1>User Profile</h1>
-      <Entry entry={{ identifier: 'Name', info: profile.name }} />
-      <Entry entry={{ identifier: 'Email', info: profile.email }} />
-      <Entry entry={
-        { identifier: 'Favourite penguin', info: profile.favSpecies }
-      } />
+      {editOrSave === 'edit' 
+        ? <Entry entry={{ identifier: 'Name', info: profile.name }} />
+        : <EntryForm id="email" entry={
+          { identifier: 'Name', info: profile.name }
+        } />}
+      {editOrSave === 'edit' 
+        ? <Entry entry={{ identifier: 'Email', info: profile.email }} />
+        : <EntryForm id="email" entry={
+            { identifier: 'Email', info: profile.email }
+          } />}
+      {editOrSave === 'edit' 
+        ? <Entry entry={
+            { identifier: 'Favourite penguin', info: profile.favSpecies }
+          } />
+          : <EntryForm id="email" entry={
+            { identifier: 'Favourite penguin', info: profile.favSpecies }
+          } />}
       <button type="button" onClick={() => handleEditOrSaveChange()}>
         {editOrSave === 'edit' ? 'Edit profile' : 'Save profile'}
       </button>
