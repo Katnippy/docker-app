@@ -42,13 +42,13 @@ module.exports = {
       'error',
       'always'
     ],
-    'eqeqeq': 'error', // 1
-    'no-trailing-spaces': 'error', // 2
-    'object-curly-spacing': [ // 3
+    'eqeqeq': 'error',
+    'no-trailing-spaces': 'error',
+    'object-curly-spacing': [
       'error',
       'always'
     ],
-    'arrow-spacing': [ // 4
+    'arrow-spacing': [
       'error',
       { 'before': true, 'after': true }
     ],
