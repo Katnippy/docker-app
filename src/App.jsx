@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import Entry from './components/Entry.jsx';
+
 function App() {
   const [profile, setProfile] = useState(
     {
@@ -21,9 +23,11 @@ function App() {
   return (
     <div className="container">
       <h1>User Profile</h1>
-      <p>Name: {profile.name}</p>
-      <p>Email: {profile.email}</p>
-      <p>Favourite penguin species: {profile.favSpecies}</p>
+      <Entry entry={{ identifier: 'Name', info: profile.name }} />
+      <Entry entry={{ identifier: 'Email', info: profile.email }} />
+      <Entry entry={
+        { identifier: 'Favourite penguin', info: profile.favSpecies }
+      } />
       <button type="button" onClick={() => handleEditOrSaveChange()}>
         {editOrSave === 'edit' ? 'Edit profile' : 'Save profile'}
       </button>
