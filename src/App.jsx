@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import Entry from './components/Entry.jsx';
-import EntryForm from './components/EntryForm.jsx';
+import Field from './components/Field.jsx';
+import FieldForm from './components/FieldForm.jsx';
 
 function App() {
   const [profile, setProfile] = useState(
@@ -40,20 +40,20 @@ function App() {
     <div className="container">
       <h1>User Profile</h1>
       {editOrSave === 'edit' 
-        ? <Entry entry={{ identifier: 'Name', info: profile.name }} />
-        : <EntryForm id="email" onChange={handleNameChange} entry={
+        ? <Field field={{ identifier: 'Name', info: profile.name }} />
+        : <FieldForm id="email" onChange={handleNameChange} field={
           { identifier: 'Name', info: profile.name }
         } />}
       {editOrSave === 'edit' 
-        ? <Entry entry={{ identifier: 'Email', info: profile.email }} />
-        : <EntryForm id="email" onChange={handleEmailChange} entry={
+        ? <Field field={{ identifier: 'Email', info: profile.email }} />
+        : <FieldForm id="email" onChange={handleEmailChange} field={
             { identifier: 'Email', info: profile.email }
           } />}
       {editOrSave === 'edit' 
-        ? <Entry entry={
+        ? <Field field={
             { identifier: 'Favourite penguin', info: profile.favSpecies }
           } />
-          : <EntryForm id="email" onChange={handleFavSpeciesChange} entry={
+          : <FieldForm id="email" onChange={handleFavSpeciesChange} field={
             { identifier: 'Favourite penguin', info: profile.favSpecies }
           } />}
       <button type="button" onClick={() => handleEditOrSaveChange()}>
