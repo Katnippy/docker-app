@@ -21,24 +21,39 @@ function App() {
     }
   };
 
+  function handleNameChange(event) {
+    const newProfile = { ...profile, name: event.target.value };
+    setProfile(newProfile);
+  }
+
+  function handleEmailChange(event) {
+    const newProfile = { ...profile, email: event.target.value };
+    setProfile(newProfile);
+  }
+
+  function handleFavSpeciesChange(event) {
+    const newProfile = { ...profile, favSpecies: event.target.value };
+    setProfile(newProfile);
+  }
+
   return (
     <div className="container">
       <h1>User Profile</h1>
       {editOrSave === 'edit' 
         ? <Entry entry={{ identifier: 'Name', info: profile.name }} />
-        : <EntryForm id="email" entry={
+        : <EntryForm id="email" onChange={handleNameChange} entry={
           { identifier: 'Name', info: profile.name }
         } />}
       {editOrSave === 'edit' 
         ? <Entry entry={{ identifier: 'Email', info: profile.email }} />
-        : <EntryForm id="email" entry={
+        : <EntryForm id="email" onChange={handleEmailChange} entry={
             { identifier: 'Email', info: profile.email }
           } />}
       {editOrSave === 'edit' 
         ? <Entry entry={
             { identifier: 'Favourite penguin', info: profile.favSpecies }
           } />
-          : <EntryForm id="email" entry={
+          : <EntryForm id="email" onChange={handleFavSpeciesChange} entry={
             { identifier: 'Favourite penguin', info: profile.favSpecies }
           } />}
       <button type="button" onClick={() => handleEditOrSaveChange()}>

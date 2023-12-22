@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-export default function EntryForm({ id, entry: { identifier, info } }) {
+export default function EntryForm({ id, onChange, entry: { identifier, info } }) {
   return (
     <form style={{margin: "16px 0"}}>
       <label htmlFor={id}>{identifier}: </label>
-      <input id={id} value={info}></input>
+      <input id={id} value={info} onChange={onChange}></input>
     </form>
   );
 }
