@@ -21,7 +21,6 @@ function App() {
     }
   };
 
-  // TODO: Add prop types.
   return (
     <div className="container">
       <h1>User Profile</h1>
